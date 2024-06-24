@@ -1,32 +1,22 @@
-# to-do-list
+# Weather App
 
-The "Hello World" of web development
-
-[Live Preview 👈](https://mauroagustin99.github.io/to-do-list/)
+## [Live Preview](#) 👈
 
 ## Introduction
 
-Welcome to my To-Do List project! This is a simple yet powerful application that allows you to manage tasks for different projects. It's a great way to get organized and keep track of your tasks.
+Welcome to my Weather App project! This is a straightforward yet powerful application that allows you to check the weather for any city. It's a great way to practice working with APIs and asynchronous JavaScript.
 
 ## Features
 
-- **Create Tasks for Each Project:** Easily add new tasks for any project you're working on.
-- **Save Tasks:** Each task includes text, a due date (using date-fns), and a priority level. All tasks are saved in the local storage so you won't lose them.
-- **Notes:** Add notes that you can change the color of. These are also saved in local storage.
-- **Stylish Design:** The app is styled using CSS to make it look clean and modern.
+- **Search for City Weather**: Easily search for the current weather in any city.
+- **Display Weather Data**: View detailed weather information, including temperature, humidity, wind speed, and more.
+- **Unit Conversion**: Toggle between Celsius and Fahrenheit for temperature readings.
+- **Responsive Design**: The app is designed to be responsive and looks great on both desktop and mobile devices.
 
 ## Tech Stack
 
-- **Webpack:** Bundles the JavaScript files and other assets.
-- **JavaScript:** The core functionality of the app.
-- **CSS:** For styling the app.
-- **date-fns:** A modern JavaScript date utility library for parsing, formatting, and manipulating dates.
-- **Local Storage:** Saves tasks and notes so your data persists between sessions.
-
-## How It Looks Now
-
-![Current Look](./img/Screenshot.png)
-
-## Mockup of the project
-
-![First Mockup](./img/To-Do-Mockup.png)
+- **JavaScript**: The core functionality of the app.
+- **CSS**: For styling the app and ensuring a clean and modern design.
+- **Webpack**: Bundles the JavaScript files and other assets.
+- **OpenWeatherMap API**: Provides weather data for cities around the world.
+- **Async/Await**: Used for handling asynchronous operations when fetching data from the API.
