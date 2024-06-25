@@ -7,8 +7,38 @@
     <title>~Weather App~</title>
   </head>
   <body>
-    <input type="text" id="search-place" placeholder="e.g: 'London'" />
-    <button id="search-place-btn">search</button>
-    <p id="error"></p>
+    <section class="options">
+      <input type="text" id="search-place" placeholder="e.g: 'London'" />
+      <button id="search-place-btn">search</button>
+      <p id="error"></p>
+      <div class="toggle-button-cover">
+        <div id="button-3" class="button r">
+          <input class="checkbox" type="checkbox" />
+          <div class="knobs"></div>
+          <div class="layer"></div>
+        </div>
+      </div>
+    </section>
+    <section class="main-content">
+      <div class="place">
+        <span class="place-name"></span>
+        <span class="country-name"></span>
+        <span class="local-time"></span>
+      </div>
+      <div class="now-info">
+        <div class="weather-icon"></div>
+        <div class="temp"></div>
+        <div class="feels-like">
+          Feels Like <span class="feels-like-api"></span>
+        </div>
+        <div class="humidity">humidity <span class="humidity-api"></span></div>
+        <div class="wind">wind <span class="wind-api"></span></div>
+        <div class="pressure">pressure <span class="pressure-api"></span></div>
+      </div>
+    </section>
+    <section class="forecast">
+      <div class="max-temp">Max. <span class="max-temp-api"></span></div>
+      <div class="min-temp">Min. <span class="min-temp-api"></span></div>
+    </section>
   </body>
 </html>
