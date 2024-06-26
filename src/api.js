@@ -1,52 +1,58 @@
-import { showPlace } from './domcontroller.js';
+import { showForecast, showNowWeather, showPlace } from './domcontroller.js';
 
-export async function fetchWeather(query) {
+export async function fetchWeather(query, unit) {
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=32c952d6c80e48859c1224037241906&q=${query}&aqi=no`,
+      `http://api.weatherapi.com/v1/current.json?key=32c952d6c80e48859c1224037241906&q=${query}`,
       { mode: 'cors' }
     );
     const data = await response.json();
-    console.log(data);
-    const selectedData = {
-      location: {
-        name: data.location.name,
-        country: data.location.country,
-      },
-      current: {
-        temp_c: data.current.temp_c,
-        condition: data.current.condition.text,
-        wind_kph: data.current.wind_kph,
-      },
-    };
-    showPlace(selectedData.location.name, selectedData.location.country);
-    return selectedData;
+    console.log('data:' + data);
+
+    await showPlace(
+      data.location.name,
+      data.location.region,
+      data.location.country,
+      data.location.time
+    );
+
+    if (unit) {
+      await showNowWeather(
+        data.current.condition.icon,
+        data.current.temp_c,
+        data.current.condition.text,
+        data.current.feelslike_c,
+        data.current.humidity,
+        data.current.wind_kph
+      );
+    } else {
+      await showNowWeather(
+        data.current.condition.icon,
+        data.current.temp_f,
+        data.current.condition.text,
+        data.current.feelslike_f,
+        data.current.humidity,
+        data.current.wind_mph
+      );
+    }
+
+    // code to change from °C to °F {}
   } catch (error) {
-    alert(error);
+    console.error('Error fetching the weather data:', error);
+    alert('Error fetching the weather data');
   }
 }
 
-export async function fetchForecast(query) {
+export async function fetchForecast(query, unit) {
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=32c952d6c80e48859c1224037241906&q=${query}&days=3&aqi=no&alerts=no`,
+      `http://api.weatherapi.com/v1/forecast.json?key=32c952d6c80e48859c1224037241906&q=${query}&days=3`,
       { mode: 'cors' }
     );
-
     const data = await response.json();
-    const selectedData = {
-      location: {
-        name: data.location.name,
-        country: data.location.country,
-      },
-      current: {
-        temp_c: data.current.temp_c,
-        condition: data.current.condition.text,
-        wind_kph: data.current.wind_kph,
-      },
-    };
-    return selectedData;
+
+    await showForecast(data, unit);
   } catch (error) {
-    alert(error);
+    alert('Error fetching the forecast data', error);
   }
 }

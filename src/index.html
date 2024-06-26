@@ -19,26 +19,31 @@
         </div>
       </div>
     </section>
+
     <section class="main-content">
-      <div class="place">
-        <span class="place-name"></span>
-        <span class="country-name"></span>
-        <span class="local-time"></span>
-      </div>
-      <div class="now-info">
-        <div class="weather-icon"></div>
-        <div class="temp"></div>
-        <div class="feels-like">
-          Feels Like <span class="feels-like-api"></span>
+      <div class="app-container">
+        <div class="place">
+          <span class="place-name"></span>
+          <span class="region-name"></span>
+          <span class="country-name"></span>
+          <span class="local-time"></span>
         </div>
-        <div class="humidity">humidity <span class="humidity-api"></span></div>
-        <div class="wind">wind <span class="wind-api"></span></div>
-        <div class="pressure">pressure <span class="pressure-api"></span></div>
+        <div class="now-info">
+          <div class="now-weather">
+            <img class="weather-icon" />
+            <div class="temp"><span class="temp-api"></span></div>
+            <span class="now-condition"></span>
+          </div>
+          <div class="feels-like">
+            Feels Like <span class="feels-like-api"></span>
+          </div>
+          <div class="humidity">
+            Humidity <span class="humidity-api"></span>
+          </div>
+          <div class="wind">Wind <span class="wind-api"></span></div>
+        </div>
       </div>
     </section>
-    <section class="forecast">
-      <div class="max-temp">Max. <span class="max-temp-api"></span></div>
-      <div class="min-temp">Min. <span class="min-temp-api"></span></div>
-    </section>
+    <section class="forecast-container"><div class="forecast"></div></section>
   </body>
 </html>
