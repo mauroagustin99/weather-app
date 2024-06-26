@@ -23,7 +23,8 @@ export async function fetchWeather(query, unit) {
         data.current.condition.text,
         data.current.feelslike_c,
         data.current.humidity,
-        data.current.wind_kph
+        data.current.wind_kph,
+        unit
       );
     } else {
       await showNowWeather(
@@ -32,7 +33,8 @@ export async function fetchWeather(query, unit) {
         data.current.condition.text,
         data.current.feelslike_f,
         data.current.humidity,
-        data.current.wind_mph
+        data.current.wind_mph,
+        unit
       );
     }
 

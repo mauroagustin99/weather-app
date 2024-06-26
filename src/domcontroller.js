@@ -23,14 +23,24 @@ export function showNowWeather(
   nowinfo3,
   nowinfo4,
   nowinfo5,
-  nowinfo6
+  nowinfo6,
+  unit
 ) {
-  weatherIcon.src = nowinfo1;
-  temp.textContent = nowinfo2;
-  condition.textContent = nowinfo3;
-  feelsLike.textContent = nowinfo4;
-  humidity.textContent = nowinfo5;
-  wind.textContent = nowinfo6;
+  if (unit) {
+    weatherIcon.src = nowinfo1;
+    temp.innerHTML = `${nowinfo2}°C`;
+    condition.textContent = nowinfo3;
+    feelsLike.innerHTML = `${nowinfo4}°C`;
+    humidity.textContent = nowinfo5;
+    wind.innerHTML = `${nowinfo6} kph`;
+  } else {
+    weatherIcon.src = nowinfo1;
+    temp.innerHTML = `${nowinfo2}°F`;
+    condition.textContent = nowinfo3;
+    feelsLike.innerHTML = `${nowinfo4}°F`;
+    humidity.textContent = nowinfo5;
+    wind.innerHTML = `${nowinfo6} mph`;
+  }
 }
 
 export function showForecast(data, unit) {
