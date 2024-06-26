@@ -7,13 +7,12 @@ export async function fetchWeather(query, unit) {
       { mode: 'cors' }
     );
     const data = await response.json();
-    console.log('data:' + data);
 
     await showPlace(
       data.location.name,
       data.location.region,
       data.location.country,
-      data.location.time
+      data.location.localtime
     );
 
     if (unit) {
@@ -55,6 +54,7 @@ export async function fetchForecast(query, unit) {
 
     await showForecast(data, unit);
   } catch (error) {
+    console.error('Error fetching the forecast data:', error);
     alert('Error fetching the forecast data', error);
   }
 }

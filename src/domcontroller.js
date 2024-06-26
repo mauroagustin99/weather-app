@@ -1,3 +1,5 @@
+import { addMinutes, format, isToday, isTomorrow, parseISO } from 'date-fns';
+
 const placeName = document.querySelector('.place-name');
 const countryName = document.querySelector('.country-name');
 const localTime = document.querySelector('.local-time');
@@ -11,10 +13,13 @@ const humidity = document.querySelector('.humidity-api');
 const wind = document.querySelector('.wind-api');
 
 export function showPlace(place1, place2, place3, place4) {
+  const dateTime = new Date(place4);
+  const formattedDateTime = format(dateTime, 'eeee, MMMM do, yyyy, hh:mm a');
+
   placeName.textContent = place1;
   regionName.textContent = place2;
   countryName.textContent = place3;
-  localTime.textContent = place4;
+  localTime.textContent = formattedDateTime;
 }
 
 export function showNowWeather(
@@ -48,7 +53,18 @@ export function showForecast(data, unit) {
   forecastSection.innerHTML = '';
   const forecast = data.forecast.forecastday;
   forecast.forEach((day) => {
-    const date = day.date;
+    const dateNoFormat = day.date;
+
+    const newDate = parseISO(dateNoFormat); // Convert API Date to an object Date
+    const newDateUTC = addMinutes(newDate, newDate.getTimezoneOffset()); // Adjust the date to UTC
+
+    let date; // Add date logic
+    if (isToday(newDateUTC)) {
+      date = 'Today';
+    } else {
+      date = format(newDateUTC, 'eeee, MMMM do');
+    }
+
     const icon = day.day.condition.icon;
     const condition = day.day.condition.text;
     let maxTemp;
