@@ -1,0 +1,39 @@
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 78%;
+  padding: 20px;
+}
+
+.forecast-card {
+  backdrop-filter: blur(100px);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.forecast-card:hover {
+  transform: scale(1.05);
+}
+
+.forecast-card h3 {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #fff;
+}
+
+.forecast-card p {
+  margin: 5px 0;
+  color: #fff;
+}
+
+.max-temp,
+.min-temp {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

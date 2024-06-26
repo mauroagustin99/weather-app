@@ -8,6 +8,10 @@ body {
   align-items: center;
   height: 100vh;
   width: 100%;
+  background-color: #333333;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .forecast-container,
 .main-content,
@@ -17,82 +21,88 @@ body {
   justify-content: center;
   align-items: center;
 }
-.options {
-}
 
 .app-container {
-  background-image: url('../img/background.jpg');
-  background-size: cover;
-  background-position: center;
-  padding: 20px;
+  padding: 40px;
   color: white;
-
+  backdrop-filter: blur(100px);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-  width: 80%;
+  width: 70%;
+  height: fit-content;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
 }
+
 .place {
   display: grid;
-  grid-template-rows: 4fr repeat(3, 1fr);
+  grid-template-rows: 2fr 1fr;
   justify-content: center;
   align-items: center;
+  height: 10em;
+}
+.place-other {
+  display: flex;
+  flex-direction: column;
 }
 
 .place-name {
-  font-size: 3em;
+  font-size: 3.5em;
+  font-weight: 500;
+  margin-top: auto;
 }
+
+.region-name {
+  font-size: 1.5em;
+}
+
+/*Now information*/
 .now-info {
   display: grid;
-  grid-template-rows: 4fr repeat(4, 1fr);
+  grid-template-rows: 2fr 1fr;
+  height: 10em;
+  gap: 15px;
   justify-content: center;
   align-items: center;
 }
 
 .now-weather {
   display: flex;
+  gap: 1em;
 }
+
+.now-condition {
+  font-size: 1em;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.weather-icon {
+  height: 65px;
+  width: 65px;
+}
+
+.icon-condition {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
 .temp-api {
   font-size: 3em;
+  align-self: center;
 }
 
-.forecast {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px; /* Espacio entre las tarjetas */
-  width: 80%;
-  padding: 20px;
+.feels-like,
+.humidity,
+.wind {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.forecast-card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.2s; /* Animación suave al hacer hover */
-}
-
-.forecast-card:hover {
-  transform: scale(1.05); /* Efecto de agrandamiento al hacer hover */
-}
-
-.forecast-card h3 {
-  margin: 10px 0;
-  font-size: 1.2em;
-  color: #333;
-}
-
-.forecast-card img {
-  width: 50px; /* Tamaño del icono */
-  height: 50px;
-  margin: 10px 0;
-}
-
-.forecast-card p {
-  margin: 5px 0;
-  color: #666;
+.icons {
+  height: 1.5em;
 }

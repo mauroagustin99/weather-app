@@ -1,4 +1,13 @@
-import { addMinutes, format, isToday, isTomorrow, parseISO } from 'date-fns';
+import { addMinutes, format, isToday, parseISO } from 'date-fns';
+
+import background1 from '../img/pexels-aayushrawat-5657878.jpg';
+import background2 from '../img/pexels-souvenirpixels-1561322.jpg';
+
+import thermometer from './img/thermometer.svg';
+import waterPercent from './img/water-percent.svg';
+import weatherWind from './img/weather-windy.svg';
+import arrowUp from './img/arrow-up-bold.svg';
+import arrowDown from './img/arrow-down-bold.svg';
 
 const placeName = document.querySelector('.place-name');
 const countryName = document.querySelector('.country-name');
@@ -11,6 +20,21 @@ const condition = document.querySelector('.now-condition');
 const feelsLike = document.querySelector('.feels-like-api');
 const humidity = document.querySelector('.humidity-api');
 const wind = document.querySelector('.wind-api');
+
+const feelsLikeContainer = document.querySelector('.feels-like');
+const thermometerSvg = document.createElement('img');
+thermometerSvg.src = thermometer;
+thermometerSvg.classList.add('icons');
+
+const humidityContainer = document.querySelector('.humidity');
+const humiditySvg = document.createElement('img');
+humiditySvg.src = waterPercent;
+humiditySvg.classList.add('icons');
+
+const windContainer = document.querySelector('.wind');
+const windSvg = document.createElement('img');
+windSvg.src = weatherWind;
+windSvg.classList.add('icons');
 
 export function showPlace(place1, place2, place3, place4) {
   const dateTime = new Date(place4);
@@ -36,6 +60,7 @@ export function showNowWeather(
     temp.innerHTML = `${nowinfo2}°C`;
     condition.textContent = nowinfo3;
     feelsLike.innerHTML = `${nowinfo4}°C`;
+
     humidity.textContent = nowinfo5;
     wind.innerHTML = `${nowinfo6} kph`;
   } else {
@@ -46,6 +71,9 @@ export function showNowWeather(
     humidity.textContent = nowinfo5;
     wind.innerHTML = `${nowinfo6} mph`;
   }
+  feelsLikeContainer.appendChild(thermometerSvg);
+  humidityContainer.appendChild(humiditySvg);
+  windContainer.appendChild(windSvg);
 }
 
 export function showForecast(data, unit) {
@@ -79,8 +107,8 @@ export function showForecast(data, unit) {
       <h3>${date}</h3>
       <img src="${icon}"/>
       <p>${condition}</p>
-      <p>Max Temp: ${maxTemp}°C</p>
-      <p>Min Temp: ${minTemp}°C</p>
+      <div class="max-temp">Max Temp: ${maxTemp}°C</div>
+      <div class="min-temp">Min Temp: ${minTemp}°C</div>
     `;
     } else {
       maxTemp = day.day.maxtemp_f;
@@ -89,12 +117,36 @@ export function showForecast(data, unit) {
       <h3>${date}</h3>
       <img src="${icon}"/>
       <p>${condition}</p>
-      <p>Max Temp: ${maxTemp}°F</p>
-      <p>Min Temp: ${minTemp}°F</p>
+      <div class="max-temp">Max Temp: ${maxTemp}°F</div>
+      <div class="min-temp">Min Temp: ${minTemp}°F</div>
     `;
     }
 
     weatherDiv.classList.add('forecast-card');
+    const arrowupSvg = document.createElement('img');
+    arrowupSvg.src = arrowUp;
+    arrowupSvg.classList.add('icons');
+
+    const arrowdownSvg = document.createElement('img');
+    arrowdownSvg.src = arrowDown;
+    arrowdownSvg.classList.add('icons');
+
+    const arrowupContainers = weatherDiv.querySelectorAll('.max-temp');
+    const arrowdownContainers = weatherDiv.querySelectorAll('.min-temp');
+
+    arrowupContainers.forEach((container) => {
+      container.appendChild(arrowupSvg.cloneNode(true));
+    });
+
+    arrowdownContainers.forEach((container) => {
+      container.appendChild(arrowdownSvg.cloneNode(true));
+    });
     forecastSection.appendChild(weatherDiv);
   });
+}
+
+const wallpapers = [`url(${background1})`, `url(${background2})`];
+export function changeWallpaper() {
+  const randomIndex = Math.floor(Math.random() * wallpapers.length);
+  document.body.style.backgroundImage = wallpapers[randomIndex];
 }
