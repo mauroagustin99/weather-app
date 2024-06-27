@@ -2,13 +2,19 @@ import './style.css';
 import './toggle.css';
 import './options.css';
 import './forecast.css';
-import { fetchWeather, fetchForecast } from './api.js';
+import {
+  fetchWeather,
+  fetchForecast,
+  fetchWeatherByCoordinates,
+} from './api.js';
 import { changeWallpaper } from './domcontroller.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   changeWallpaper();
   const searchPlaceInput = document.querySelector('.search-place');
   const searchPlaceBtn = document.querySelector('.search-place-btn');
+
+  const localizationBtn = document.querySelector('#getLocationBtn');
 
   const unitChanger = document.querySelector('.checkbox');
   let unit = true;
@@ -42,6 +48,26 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(unit);
     fetchWeather(currentQuery, unit);
     fetchForecast(currentQuery, unit);
+  });
+
+  //Search by localization
+  localizationBtn.addEventListener('click', () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+
+          fetchWeatherByCoordinates(latitude, longitude, unit);
+        },
+        (error) => {
+          console.error('Error getting location:', error);
+          alert('No se pudo obtener la ubicación del usuario.');
+        }
+      );
+    } else {
+      alert('Geolocalización no soportada por el navegador.');
+    }
   });
 
   fetchWeather(currentQuery, unit);

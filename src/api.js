@@ -58,3 +58,54 @@ export async function fetchForecast(query, unit) {
     alert('Error fetching the forecast data', error);
   }
 }
+
+export async function fetchWeatherByCoordinates(latitude, longitude, unit) {
+  try {
+    const apiKey = '32c952d6c80e48859c1224037241906';
+    const [currentWeatherResponse, forecastResponse] = await Promise.all([
+      fetch(
+        `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${latitude},${longitude}`,
+        { mode: 'cors' }
+      ),
+      fetch(
+        `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${latitude},${longitude}&days=3`,
+        { mode: 'cors' }
+      ),
+    ]);
+
+    const currentWeatherData = await currentWeatherResponse.json();
+    const forecastData = await forecastResponse.json();
+
+    await showPlace(
+      currentWeatherData.location.name,
+      currentWeatherData.location.region,
+      currentWeatherData.location.country,
+      currentWeatherData.location.localtime
+    );
+    if (unit) {
+      await showNowWeather(
+        currentWeatherData.current.condition.icon,
+        currentWeatherData.current.temp_c,
+        currentWeatherData.current.condition.text,
+        currentWeatherData.current.feelslike_c,
+        currentWeatherData.current.humidity,
+        currentWeatherData.current.wind_kph,
+        unit
+      );
+    } else {
+      await showNowWeather(
+        currentWeatherData.current.condition.icon,
+        currentWeatherData.current.temp_f,
+        currentWeatherData.current.condition.text,
+        currentWeatherData.current.feelslike_f,
+        currentWeatherData.current.humidity,
+        currentWeatherData.current.wind_mph,
+        unit
+      );
+    }
+
+    await showForecast(forecastData, unit);
+  } catch (error) {
+    console.error('Error fetching weather data:', error);
+  }
+}
