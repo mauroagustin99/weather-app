@@ -10,7 +10,7 @@ const apiKey = process.env.API_KEY;
 export async function fetchWeather(query, unit) {
   try {
     const response = await fetch(
-      `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${query}`,
+      `https://api.weatherapi.com/v1/current.json?key=32c952d6c80e48859c1224037241906&q=${query}`,
       { mode: 'cors' }
     );
     const data = await response.json();
@@ -52,7 +52,7 @@ export async function fetchWeather(query, unit) {
 export async function fetchForecast(query, unit) {
   try {
     const response = await fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=3`,
+      `https://api.weatherapi.com/v1/forecast.json?key=32c952d6c80e48859c1224037241906&q=${query}&days=3`,
       { mode: 'cors' }
     );
 
@@ -69,11 +69,11 @@ export async function fetchWeatherByCoordinates(latitude, longitude, unit) {
   try {
     const [currentWeatherResponse, forecastResponse] = await Promise.all([
       fetch(
-        `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${latitude},${longitude}`,
+        `https://api.weatherapi.com/v1/current.json?key=32c952d6c80e48859c1224037241906&q=${latitude},${longitude}`,
         { mode: 'cors' }
       ),
       fetch(
-        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${latitude},${longitude}&days=3`,
+        `https://api.weatherapi.com/v1/forecast.json?key=32c952d6c80e48859c1224037241906&q=${latitude},${longitude}&days=3`,
         { mode: 'cors' }
       ),
     ]);
