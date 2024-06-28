@@ -2,7 +2,6 @@ import { addMinutes, format, isToday, parseISO } from 'date-fns';
 
 import background1 from '../img/pexels-aayushrawat-5657878.jpg';
 import background2 from '../img/pexels-souvenirpixels-1561322.jpg';
-
 import thermometer from './img/thermometer.svg';
 import waterPercent from './img/water-percent.svg';
 import weatherWind from './img/weather-windy.svg';

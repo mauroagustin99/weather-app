@@ -36,8 +36,6 @@ export async function fetchWeather(query, unit) {
         unit
       );
     }
-
-    // code to change from °C to °F {}
   } catch (error) {
     console.error('Error fetching the weather data:', error);
     alert('Error fetching the weather data');
@@ -105,6 +103,7 @@ export async function fetchWeatherByCoordinates(latitude, longitude, unit) {
     }
 
     await showForecast(forecastData, unit);
+    return { locationName: currentWeatherData.location.name };
   } catch (error) {
     console.error('Error fetching weather data:', error);
   }

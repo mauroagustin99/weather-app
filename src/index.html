@@ -7,62 +7,77 @@
     <title>~Weather App~</title>
   </head>
   <body>
-    <section class="options">
-      <div class="search-group">
-        <svg viewBox="0 0 24 24" aria-hidden="true" class="search-place-btn">
-          <g>
-            <path
-              d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
-            ></path>
-          </g>
-        </svg>
-        <input class="search-place" type="search" placeholder="Search place" />
-      </div>
+    <section class="options-container">
+      <div class="options">
+        <div class="location">
+          <div class="search-group">
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              class="search-place-btn"
+            >
+              <g>
+                <path
+                  d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+                ></path>
+              </g>
+            </svg>
+            <input
+              class="search-place"
+              type="search"
+              placeholder="Search place"
+            />
+          </div>
 
-      <p id="error"></p>
-      <button id="getLocationBtn">Obtener ubicacion</button>
-      <div class="toggle-button-cover">
-        <div id="button-3" class="button r">
-          <input class="checkbox" type="checkbox" />
-          <div class="knobs"></div>
-          <div class="layer"></div>
+          <p id="error"></p>
+          <div id="getLocationBtn"></div>
+        </div>
+        <div class="toggle-button-cover">
+          <div id="button-3" class="button r">
+            <input class="checkbox" type="checkbox" />
+            <div class="knobs"></div>
+            <div class="layer"></div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="main-content">
-      <div class="app-container">
-        <div class="place">
-          <span class="place-name"></span>
-          <div class="place-other">
-            <span class="region-name"></span>
-            <span class="country-name"></span>
-            <span class="local-time"></span>
-          </div>
-        </div>
-        <div class="now-info">
-          <div class="now-weather">
-            <div class="icon-condition">
-              <img class="weather-icon" />
-              <span class="now-condition"></span>
+      <div class="app">
+        <div class="app-container">
+          <div class="place">
+            <span class="place-name"></span>
+            <div class="place-other">
+              <span class="region-name"></span>
+              <span class="country-name"></span>
+              <span class="local-time"></span>
             </div>
-            <span class="temp-api"></span>
           </div>
+          <div class="now-info">
+            <div class="now-weather">
+              <div class="icon-condition">
+                <img class="weather-icon" />
+                <span class="now-condition"></span>
+              </div>
+              <span class="temp-api"></span>
+            </div>
 
-          <div class="now-other">
-            <div class="feels-like">
-              <span>Feels Like</span> <span class="feels-like-api"></span>
-            </div>
-            <div class="humidity">
-              <span>Humidity</span> <span class="humidity-api"></span>
-            </div>
-            <div class="wind">
-              <span>Wind</span> <span class="wind-api"></span>
+            <div class="now-other">
+              <div class="feels-like">
+                <span>Feels Like</span> <span class="feels-like-api"></span>
+              </div>
+              <div class="humidity">
+                <span>Humidity</span> <span class="humidity-api"></span>
+              </div>
+              <div class="wind">
+                <span>Wind</span> <span class="wind-api"></span>
+              </div>
             </div>
           </div>
         </div>
+
+        <div class="forecast"></div>
       </div>
     </section>
-    <section class="forecast-container"><div class="forecast"></div></section>
   </body>
 </html>

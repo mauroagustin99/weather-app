@@ -2,6 +2,7 @@ import './style.css';
 import './toggle.css';
 import './options.css';
 import './forecast.css';
+import locationSvg from './img/crosshairs.svg';
 import {
   fetchWeather,
   fetchForecast,
@@ -11,10 +12,15 @@ import { changeWallpaper } from './domcontroller.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   changeWallpaper();
+  const localizationBtn = document.querySelector('#getLocationBtn');
+
+  const locationImg = document.createElement('img');
+  locationImg.classList.add('get-location');
+  locationImg.src = locationSvg;
+  localizationBtn.appendChild(locationImg);
+
   const searchPlaceInput = document.querySelector('.search-place');
   const searchPlaceBtn = document.querySelector('.search-place-btn');
-
-  const localizationBtn = document.querySelector('#getLocationBtn');
 
   const unitChanger = document.querySelector('.checkbox');
   let unit = true;
@@ -58,15 +64,25 @@ document.addEventListener('DOMContentLoaded', () => {
           const latitude = position.coords.latitude;
           const longitude = position.coords.longitude;
 
-          fetchWeatherByCoordinates(latitude, longitude, unit);
+          try {
+            const { locationName } = await fetchWeatherByCoordinates(
+              latitude,
+              longitude,
+              unit
+            );
+            currentQuery = locationName;
+          } catch {
+            console.error('Error fetching weather data by coordinates:', error);
+            alert('Cannot find user position.');
+          }
         },
         (error) => {
           console.error('Error getting location:', error);
-          alert('No se pudo obtener la ubicación del usuario.');
+          alert('Cannot find user position.');
         }
       );
     } else {
-      alert('Geolocalización no soportada por el navegador.');
+      alert('Geolocalization not supported.');
     }
   });
 

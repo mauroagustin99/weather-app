@@ -51,7 +51,7 @@
 
 .layer {
   width: 100%;
-  background-color: #efefef;
+  background-color: #f3f3f4;
   transition: 0.3s ease all;
   z-index: 1;
 }
@@ -95,5 +95,5 @@
 }
 
 #button-3 .checkbox:checked ~ .layer {
-  background-color: #efefef;
+  background-color: #f3f3f4;
 }

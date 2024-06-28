@@ -13,7 +13,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
-.forecast-container,
 .main-content,
 .options {
   width: 100%;
@@ -22,13 +21,18 @@ body {
   align-items: center;
 }
 
+.main-content {
+  flex-direction: column;
+}
+.app {
+  width: 70%;
+}
 .app-container {
   padding: 40px;
   color: white;
   backdrop-filter: blur(100px);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 70%;
   height: fit-content;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -108,4 +112,10 @@ body {
 
 .icons {
   height: 1.5em;
+}
+
+@media (min-width: 1400px) {
+  .app {
+    width: 55%;
+  }
 }
