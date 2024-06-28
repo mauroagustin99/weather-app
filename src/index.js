@@ -8,7 +8,7 @@ import {
   fetchForecast,
   fetchWeatherByCoordinates,
 } from './api.js';
-import { changeWallpaper } from './domcontroller.js';
+import { changeWallpaper, showLoader } from './domcontroller.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   changeWallpaper();
@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //Search by localization
   localizationBtn.addEventListener('click', () => {
+    showLoader();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         async (position) => {
@@ -88,4 +89,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   fetchWeather(currentQuery, unit);
   fetchForecast(currentQuery, unit);
+  searchPlaceInput.textContent = '';
 });

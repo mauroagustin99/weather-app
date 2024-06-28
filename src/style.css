@@ -113,7 +113,30 @@ body {
 .icons {
   height: 1.5em;
 }
+.loading {
+  filter: blur(6px);
+  z-index: 0;
+  pointer-events: none;
+}
+.loader {
+  position: absolute;
+  display: none;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border-top: 8px solid #fff;
+  border-left: 8px solid #fff;
+  border-right: 8px solid #ff00;
+  animation: loader 0.7s infinite linear;
+  z-index: 1;
+}
 
+@keyframes loader {
+  to {
+    transform: rotate(360deg);
+  }
+}
 @media (min-width: 1400px) {
   .app {
     width: 55%;

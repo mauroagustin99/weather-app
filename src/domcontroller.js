@@ -35,6 +35,20 @@ const windSvg = document.createElement('img');
 windSvg.src = weatherWind;
 windSvg.classList.add('icons');
 
+export function showLoader() {
+  const loader = document.getElementById('loader');
+  loader.style.display = 'block';
+  const mainContent = document.querySelector('.app');
+  mainContent.classList.add('loading');
+}
+
+export function hideLoader() {
+  const loader = document.getElementById('loader');
+  loader.style.display = 'none';
+  const mainContent = document.querySelector('.app');
+  mainContent.classList.remove('loading');
+}
+
 export function showPlace(place1, place2, place3, place4) {
   const dateTime = new Date(place4);
   const formattedDateTime = format(dateTime, 'eeee, MMMM do, yyyy, hh:mm a');

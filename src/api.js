@@ -1,4 +1,10 @@
-import { showForecast, showNowWeather, showPlace } from './domcontroller.js';
+import {
+  hideLoader,
+  showForecast,
+  showLoader,
+  showNowWeather,
+  showPlace,
+} from './domcontroller.js';
 
 export async function fetchWeather(query, unit) {
   try {
@@ -48,6 +54,7 @@ export async function fetchForecast(query, unit) {
       `http://api.weatherapi.com/v1/forecast.json?key=32c952d6c80e48859c1224037241906&q=${query}&days=3`,
       { mode: 'cors' }
     );
+
     const data = await response.json();
 
     await showForecast(data, unit);
@@ -106,5 +113,7 @@ export async function fetchWeatherByCoordinates(latitude, longitude, unit) {
     return { locationName: currentWeatherData.location.name };
   } catch (error) {
     console.error('Error fetching weather data:', error);
+  } finally {
+    hideLoader();
   }
 }
