@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (query) {
         fetchWeather(query, unit);
         fetchForecast(query, unit);
+        searchPlaceInput.value = '';
       }
     }
   });
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (query) {
       fetchWeather(query, unit);
       fetchForecast(query, unit);
+      searchPlaceInput.value = '';
     }
   });
 
@@ -89,5 +91,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   fetchWeather(currentQuery, unit);
   fetchForecast(currentQuery, unit);
-  searchPlaceInput.textContent = '';
 });
