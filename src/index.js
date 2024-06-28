@@ -1,4 +1,3 @@
-require('dotenv').config();
 import './style.css';
 import './toggle.css';
 import './options.css';

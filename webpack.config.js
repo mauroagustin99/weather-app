@@ -1,3 +1,4 @@
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); //Clean the dist folder before each compilation
 const path = require('path');
@@ -8,6 +9,8 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    clean: true,
+    publicPath: '',
   },
   devServer: {
     static: path.resolve(__dirname, 'dist'),
@@ -34,6 +37,7 @@ module.exports = {
       filename: 'index.html',
       inject: 'body',
     }),
+    new Dotenv(),
   ],
   optimization: {
     runtimeChunk: 'single',
