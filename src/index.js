@@ -2,6 +2,7 @@ import './style.css';
 import './toggle.css';
 import './options.css';
 import './forecast.css';
+import './queries.css';
 import locationSvg from './img/crosshairs.svg';
 import {
   fetchWeather,

@@ -28,11 +28,12 @@ body {
   width: 70%;
 }
 .app-container {
-  padding: 40px;
+  padding: 40px 10px;
   color: white;
-  backdrop-filter: blur(100px);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.089);
   height: fit-content;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -115,7 +116,7 @@ body {
 }
 .loading {
   filter: blur(6px);
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
 }
 .loader {
@@ -129,7 +130,7 @@ body {
   border-left: 8px solid #fff;
   border-right: 8px solid #ff00;
   animation: loader 0.7s infinite linear;
-  z-index: 1;
+  z-index: 2;
 }
 
 @keyframes loader {

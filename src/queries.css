@@ -1,0 +1,130 @@
+@media (max-width: 450px) {
+  .app {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .options {
+    width: 95%;
+  }
+
+  .app-container {
+    margin-top: 20px;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.089);
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .place {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+    box-sizing: content-box;
+  }
+  .place-other {
+    display: flex;
+    flex-direction: column;
+    max-width: 160px;
+  }
+
+  .place-name {
+    font-size: 3em;
+    font-weight: 500;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .region-name {
+    font-size: 1.5em;
+  }
+  .local-time {
+    font-size: smaller;
+  }
+
+  .now-info {
+    width: 80%;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  .now-weather {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .now-condition {
+    font-size: 1em;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  .weather-icon {
+    height: 65px;
+    width: 65px;
+  }
+
+  .icon-condition {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    max-width: 120px;
+  }
+
+  .temp-api {
+    font-size: 3em;
+    align-self: center;
+  }
+
+  .now-other {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  .feels-like,
+  .humidity,
+  .wind {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 5px;
+  }
+
+  .icons {
+    height: 1.5em;
+  }
+
+  .forecast {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .forecast-card {
+    padding: 5px;
+    display: flex;
+    max-height: 125px;
+    align-items: center;
+    justify-content: center;
+  }
+  .forecast-card > p {
+    display: none;
+  }
+}
